@@ -1,0 +1,8 @@
+
+
+1. Fix loop på menu registrering max 3 forsøg, udskriv "password stemmer ikke overens" og udksriv player er tilføjet til system.
+2. Fiks login så den kører videre til MainMenu efter Authenticate
+3. tilføjer player fra registreing til Lager.users
+4.
+5.
+6. CustomExceptions
