@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +8,16 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
+    public Items [] hentAltItemFraDatabasen(
+
+    }
+    public Player [] hentAltDataFraDatabase(){
+
+
+    }
+
     // Metode som opretter forbindelse til vores database og returnere connection objektet.
-    public static Connection getConnection() {
+    public Connection getConnection() {
         Properties props = new Properties();
         try {
 
