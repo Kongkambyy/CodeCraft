@@ -6,7 +6,8 @@
 4.
 5.
 6. CustomExceptions
-	- userLimitReachedException | if((Lager.users.lenght + database.lenght) > Lager.users.lenght) 
+	- userLimitReachedException | if ((Lager.users.lenght + database.lenght) > Lager.users.lenght)
+	- indvalidItemTypeException | Tjek Items.convertStringToItem()
   
 
 7. Databasen

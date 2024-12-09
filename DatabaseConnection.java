@@ -1,23 +1,13 @@
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.Properties;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    public Items [] hentAltItemFraDatabasen(
-
-    }
-    public Player [] hentAltDataFraDatabase(){
-
-
-    }
 
     // Metode som opretter forbindelse til vores database og returnere connection objektet.
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Properties props = new Properties();
         try {
 
@@ -45,7 +35,7 @@ public class DatabaseConnection {
     }
 
     // Test forbindelse til databasen
-    public static void main(String[] args) {
+    public static void test() {
         Connection connection = getConnection();
         if (connection != null) {
             System.out.println("Forbindelse oprettet med succes!");

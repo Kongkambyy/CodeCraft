@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class Inv {
     double maxWeight = 50;
-    private Items [] items;
+    private Item [] items;
 
     public void deleteItem(int itemid) {
         for (int i = 0 ; i < items.length ; i++){
@@ -18,7 +18,7 @@ public class Inv {
         }
     }
 
-    public void addItem(Items item){
+    public void addItem(Item item){
         for (int i = 0 ; i < items.length ; i++){
             if (items[i] == null && maxWeight + item.getWeight() <= maxWeight){
                 items[i] = item;
@@ -27,9 +27,6 @@ public class Inv {
         }
     }
 
-    public Items[] getItems() {
-        return items;
-    }
 
     public void sortItems (){
         //Selection sort
