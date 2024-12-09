@@ -1,1 +1,38 @@
+opret en String krypteret som er 50 char lang.
+
+password skal lagres i de 50 char. Der bliver også tilføjet char som ikke har noget med passworded at gøre.
+
+
+char[] userPassword = New char[50]
+
+String thisString = scanner(System.in);
+
+for (Int i = 0 ; i < thisString.length ; i++){
+    thisString[i] += thisString + 455;
+  }
+
+int intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 0;
+
+
+if (thisString.Lenght = lige ){
+  for(int i = 0 ; i < userPassword.Length){
+      if(intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray == 0){
+            char[i] =+ 432;
+            intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 1;
+
+        }else if (intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 1){
+            char[i] = x;
+            intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 0;
+        }
+
+  for (int i = 0 ; i < userPassword.lenght){
+        userPassword[i] += 427;
+
+
+        } 
+        
+    }
+      returnere userPassword; 
+
+}
 
