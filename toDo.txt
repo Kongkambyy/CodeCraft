@@ -12,4 +12,10 @@
 7. Databasen
 	- metode der henter data fra databasen og returnere et array
 	- metode der henter data fra databsen, sammenligner det med Lager.users og derefter opdatere databasen med ny information
+	
 
+8. lager
+	- metode der kryptere user login (one way)
+	- metode til at lagre user data
+	- metode til at hete userdata og sammenligne userinput (login metoden)
+	
