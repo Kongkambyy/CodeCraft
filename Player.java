@@ -7,6 +7,9 @@ public class Player {
         this.username = username;
         this.password = password;
     }
+    public void convertInventoryToString() {
+
+    }
     public String getUsername() {
         return username;
     }
