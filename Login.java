@@ -19,10 +19,10 @@ public class Login {
                     loggedInPlayer = Lager.users[i];
                 }else {
                     //hvis password ikke er rigtigt udskrives "Forkert password"
-                    System.out.println("Forkert password");
+                    System.out.println("\u001B[31mForkert adgangskode.\u001B[0m");
                 }
                 //Hvis brugernavnet ikke kan findes i array udskrives
-            }else {System.out.println("Brugernavn ikke fundet");}
+            }else {System.out.println("\u001B[31mBrugernavn blev ikke fundet.!\u001B[0m");}
         }
         return authenticated;
     }

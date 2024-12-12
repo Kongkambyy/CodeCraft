@@ -1,8 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         lasseTest();
+        Menu.startScreen();
     }
-    public static void lasseTest(){
+    public static void lasseTest() {
         Item item = new Item();
 
         Player player = new Player("Shillerx", "Shillerx");
@@ -19,29 +20,6 @@ public class Main {
         Item item10 = new Item(10, "Healing Potin", 5, 150, "Consumable");
 
         Inv inv = new Inv();
-
-        inv.addItem(item0);
-        inv.addItem(item1);
-        inv.addItem(item2);
-        inv.addItem(item3);
-        inv.addItem(item4);
-        inv.addItem(item5);
-        inv.addItem(item6);
-        inv.addItem(item7);
-        inv.addItem(item8);
-        inv.addItem(item9);
-        inv.addItem(item10);
-
-        inv.showInventory();
-
-        System.out.println(inv.convertWholeInvToString());
-
-        Item item11 = item.convertStringToItem("101333330");
-
-        System.out.println("dekrypteret Item:");
-        item4.displayItem();
-
-
 
 
     }

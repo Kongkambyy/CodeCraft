@@ -1,4 +1,5 @@
 package Exceptions;
 
-public class FindUserInArrayException {
+public class FindUserInArrayException extends Exception {
+
 }
