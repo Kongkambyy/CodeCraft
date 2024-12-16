@@ -1,0 +1,54 @@
+
+den færdig krytperet String vil være på 50. halvdelen af charArrayet er char som systemet vælger og har intet med UserInput at gøre
+25 char er incremented chars fra userInput. 
+hver anden char i char[] er userInput.
+
+char[0] er altid system algoritme der bestemmer.
+char[1] er increment password. 
+
+til sidst incrementeres hele strengen og på den måde bliver en envejs kryptering.
+
+Envejs kryptering: 
+	krypteret string som ikke kan genskabes. men vil altid være det samme. 
+	vi sammenligner derfor bare 2 krypterede strenge og ser om de matcher hindanden.
+
+
+
+opret en String krypteret som er 50 char lang.
+
+password skal lagres i de 50 char. Der bliver også tilføjet char som ikke har noget med passworded at gøre.
+
+public String krypteringAfString(String UserInput){
+char[] userPasswordCharArray = New char[50]
+
+for (Int i = 0 ; i < UserInput.length ; i++){
+    UserInput[i] += userInput + 455;
+  }
+
+int intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 0;
+
+
+if (thisString.Lenght = lige ){
+  for(int i = 0 ; i < userPassword.Length){
+      if(intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray == 0){
+            char[i] =+ 432;
+            intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 1;
+
+        }else if (intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 1){
+            char[i] = x;
+            intTilAtHoldeØjeOmViErPåEnLigeEllerUligePladsIVoresArray = 0;
+        }
+
+  for (int i = 0 ; i < userPassword.lenght){
+        userPassword[i] += 427;
+
+
+	        } 
+        
+	    }
+      returnere userPassword; 
+
+		}
+}
+
+

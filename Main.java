@@ -1,12 +1,12 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         lasseTest();
-        Menu.startScreen();
+        Menu.start();
     }
     public static void lasseTest() {
         Item item = new Item();
 
-        Player player = new Player("Shillerx", "Shillerx");
+        Player player = new Player("h", "h");
         Item item0 = new Item(1, "HeadArmor", 33,333,"Armor");
         Item item1 = new Item(1, "Sword", 15, 500, "Weapon");
         Item item2 = new Item(2, "Axe", 20, 450, "Weapon");
@@ -20,7 +20,9 @@ public class Main {
         Item item10 = new Item(10, "Healing Potin", 5, 150, "Consumable");
 
         Inv inv = new Inv();
+        player.setUserInventory(inv);
 
+        Lager.addPlayerToArray(player);
 
     }
 }

@@ -63,11 +63,13 @@ public class Item {
     }
 
     public void displayItem() {
-        System.out.println("Name: " + this.name);
-        System.out.println("Type: " + this.type);
-        System.out.println("ID: " + this.id);
-        System.out.println("Weight: " + this.weight);
-        System.out.println("Value: " + this.value);
+        System.out.println(" _________________");
+        System.out.println(" | Name  : " + this.name);
+        System.out.println(" | Type  : " + this.type);
+        System.out.println(" | ItemID: " + this.id);
+        System.out.println(" | Weight: " + this.weight + " KG");
+        System.out.println(" | Value : " + this.value);
+        System.out.println(" _________________");
     }
 
     public Item convertStringToItem(String s) {

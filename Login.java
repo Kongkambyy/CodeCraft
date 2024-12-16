@@ -1,29 +1,13 @@
 public class Login {
 
-    public static Player loggedInPlayer = null;
-
     public static boolean auth(String username, String password) {
-        boolean authenticated = false;
-        boolean userNameFound = false;
-        boolean passWordCorrect = false;
-
-        //Søger efter brugernavn i Users array fra Lager classen
-        for (int i = 0 ; i < Lager.users.length ; i++){
-            //Hvis brugernavnet findes ændres usernameFound til true
-            if (username.equals(Lager.users[i].getUsername())){
-                userNameFound = true;
-                //Tjekker om det indtasted password er det som er knyttet til user[i]. if true password ændres til true.
-                if (password.equals(Lager.users[i].getPassword())){
-                    passWordCorrect = true;
-                    //loggedInPlayer bliver nu ændret så systemet ved hvem der er Logged in
-                    loggedInPlayer = Lager.users[i];
-                }else {
-                    //hvis password ikke er rigtigt udskrives "Forkert password"
-                    System.out.println("\u001B[31mForkert adgangskode.\u001B[0m");
-                }
-                //Hvis brugernavnet ikke kan findes i array udskrives
-            }else {System.out.println("\u001B[31mBrugernavn blev ikke fundet.!\u001B[0m");}
+        for (Player account : Lager.users) {
+            if (account.getUsername().equals(username) && account.getPassword().equals(password)) {
+                Lager.loggedInPlayer = account;
+                return true;
+            }
         }
-        return authenticated;
+        return false;
     }
 }
+
