@@ -1,0 +1,63 @@
+Items:
+
+Weapon
+
+	id: 0
+	Name: Sword
+	weight: 30
+	Value: 25 (Damage)
+	
+	id: 1
+	Name: Axe:
+	Weight: 25
+	Value: 12 (Damage)
+
+	id: 2
+	Name: Spear:
+	Weight: 15
+	Value: 10 (Damage)
+	
+	id: 3
+	Name: Dagger:
+	Weight: 10
+	Value: 10
+
+	Id: 4
+	Name: Shield
+	Weight: 40
+	Value: (Armor)
+
+Armor 
+	Id: 5
+	Name: Helmet
+	Weight: 30
+	Value: 5 (Health)
+
+	Id: 6
+	Name: Chest Plate
+	Weight: 50:
+	Value: 25 (Health
+
+	Pants:
+	Id: 7
+	Name: Pants
+	Weight: 40
+	Value:  10 (Health)
+
+	Id: 8
+	Name: Boots
+	Weight: 20
+	Value: 4 (Health)
+
+Consumable
+	Id: 9
+	Name: Healing Potion 
+	Weight:  5
+	Value:  25 (Health)
+
+	Damage Potion:
+	Id: 10
+	Name: Damage Potion
+	Weight: 5
+	Value: 25 (Damage)
+
