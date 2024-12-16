@@ -10,19 +10,18 @@ public class Menu {
         boolean authenticated = false;
 
         while (!authenticated) {
-            clearTerminal();
-            printHeader("Velkommen til CodeCraft Inventory System");
+            printHeader("--- Velkommen til CodeCraft Inventory System ---");
             System.out.println("1. Log ind");
             System.out.println("2. Registrer");
             System.out.println("3. Afslut");
-            System.out.print("Vælg en mulighed: ");
+            System.out.print("Vælg en af ovenstående muligheder: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Ryd scanner-bufferen
+            scanner.nextLine();
 
             switch (choice) {
                 case 1 -> {
-                    clearTerminal();
+                    printProgressBar("");
                     printHeader("Log ind");
                     System.out.print("Brugernavn: ");
                     String username = scanner.nextLine();
@@ -30,19 +29,28 @@ public class Menu {
                     String password = scanner.nextLine();
 
 
-                    if (Login.auth(username, password)) {
+                    Player loggedInPlayer = null;
+                    for (Player user : Lager.users) {
+                        if (user != null && user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                            loggedInPlayer = user;
+                            break;
+                        }
+                    }
+
+                    if (loggedInPlayer != null) {
+                        Lager.loggedInPlayer = loggedInPlayer;
                         authenticated = true;
-                        printProgressBar("Logger ind", 10);
+                        System.out.println("\u001B[32mLogin succesfuldt! Velkommen, " + loggedInPlayer.getUsername() + ".\u001B[0m");
+                        printProgressBar("Logger ind");
                         mainMenu();
                     } else {
                         System.out.println("\u001B[31mForkert brugernavn eller adgangskode. Prøv igen.\u001B[0m");
                         promptEnterKey();
                     }
 
-
                     }
                     case 2 -> {
-                        clearTerminal();
+                        printProgressBar("");
                         printHeader("Registrer ny bruger");
                         System.out.print("Nyt brugernavn: ");
                         String newUsername = scanner.nextLine();
@@ -54,7 +62,7 @@ public class Menu {
                         promptEnterKey();
                     }
                     case 3 -> {
-                        printProgressBar("Afslutter", 5);
+                        printProgressBar("Afslutter");
                         System.exit(0);
                     }
                     default -> System.out.println("\u001B[31mUgyldigt valg. Prøv igen.\u001B[0m");
@@ -66,19 +74,17 @@ public class Menu {
         boolean continueRunning = true;
 
         while (continueRunning) {
-            clearTerminal();
             System.out.println("1. Se dit nuværende inventory");
             System.out.println("2. Tilføj item til dit inventory");
             System.out.println("3. Fjern item fra dit inventory");
             System.out.println("4. Søg efter et item");
             System.out.println("5. Sorter inventory");
             System.out.println("6. Log ud ");
-            System.out.println("7. tilføj Lasse Items");
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1 -> {
-                    printProgressBar("Henter inventory", 10);
+                    printProgressBar("Henter inventory");
 
                     Lager.loggedInPlayer.getInv().showInventory();
                     System.out.println("Inventory er hentet!");
@@ -86,38 +92,45 @@ public class Menu {
 
                 }
                 case 2 -> {
-                    printProgressBar("Åbner tilføjelsesmenu", 8);
+                    printProgressBar("Åbner tilføjelsesmenu");
                     System.out.println("Tilføjelsesmenu er klar.");
+                    udskrivAlleItems();
+                    System.out.println("Indtast ID på item: ");
+                    int id = scanner.nextInt();
+                    Lager.loggedInPlayer.getInv().addItem(Lager.itemListe[id]);
                     promptEnterKey();
                 }
                 case 3 -> {
-                    printProgressBar("Åbner fjernelsesmenu", 8);
+                    printProgressBar("Åbner fjernelsesmenu");
                     System.out.println("Fjernelsesmenu er klar.");
+                    Lager.loggedInPlayer.getInv().showInventory();
+                    System.out.println("Indtast ID på item du vil fjerne: ");
+                    int thisUserInputId = scanner.nextInt();
+                    Lager.loggedInPlayer.getInv().deleteItemFromInventory(thisUserInputId);
                     promptEnterKey();
                 }
                 case 4 -> {
-                    printProgressBar("Åbner søgemenu", 8);
+                    printProgressBar("Åbner søgemenu");
                     System.out.println("Søgemenu er klar.");
                     promptEnterKey();
                 }
                 case 5 -> {
-                    printProgressBar("Åbner sorteringsmenu", 8);
+                    printProgressBar("Åbner sorteringsmenu");
                     System.out.println("Sorteringsmenu er klar.");
                     promptEnterKey();
                     System.out.println("Hvordan vil du sortere dit inventory.");
-                    System.out.println("1. Id");
+                    System.out.println("1. ID");
                     System.out.println("2. Navn");
-                    System.out.println("3. antal");
+                    System.out.println("3. Antal");
                     System.out.println();
 
                     int sorteringsValgMenu = Menu.scanner.nextInt();
 
                     Lager.loggedInPlayer.getInv().sort(sorteringsValgMenu);
 
-
                 }
                 case 6 -> {
-                    printProgressBar("Logger ud", 10);
+                    printProgressBar("Logger ud");
                     continueRunning = false;
                 }
                 case 7 -> {
@@ -153,11 +166,6 @@ public class Menu {
         }
     }
 
-    private static void clearTerminal() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
-
     private static void printHeader(String header) {
         System.out.println("\u001B[34m=== " + header + " ===\u001B[0m\n");
     }
@@ -167,14 +175,31 @@ public class Menu {
         scanner.nextLine();
     }
 
-    private static void printProgressBar(String message, int steps) {
-        boolean running = true;
-        if (running) {
-            System.out.print(message + ": [");
-            for (int i = 0; i < steps; i++) {
-                System.out.print("=");
+    private static void printProgressBar(String message) {
+        System.out.print(message + "[");
+        for (int i = 0; i < 8; i++) {
+            System.out.print("=");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
-            System.out.println("] Fuldført!");
+        }
+
+        System.out.println("] Fuldført!");
+        System.out.println("");
+        rensTerminal();
+        }
+
+    private static void rensTerminal() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
         }
     }
+    private static void udskrivAlleItems(){
+        for (int i = 0; i < Lager.itemListe.length; i++) {
+            Lager.itemListe[i].displayItem();
+        }
+    }
+
 }

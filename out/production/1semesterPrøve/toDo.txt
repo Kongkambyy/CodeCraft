@@ -19,4 +19,8 @@
 	- metode der kryptere user login (one way)
 	- metode til at lagre user data
 	- metode til at hete userdata og sammenligne userinput (login metoden)
+
+9.
+    - alle items skal defineres
+
 	

@@ -30,15 +30,28 @@ public class Inv {
     }
 
     public void addItem(Item item) {
-        boolean added = false;
 
-        for (int i = 0 ; i < items.length; i++){
+        double totalVægt = 0;
+
+        //Beregner den samlede vægt af inventory
+        for (Item i : items) {
+            if (i != null) {
+                totalVægt += i.getWeight();
+            }
+        }
+
+        //Beregner om den nye vægt overskrider vægtgrænsen
+        if (totalVægt + item.getWeight() > maxWeight) {
+            System.out.println("Item kan ikke tilføjes. Den samlede vægt overskrider grænsen");
+        }else {
+            //Hvis vægten er er under grænsen, bliver item tilføjet
+        for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
                 items[i] = item;
-                added = true;
-                System.out.println(item + " er blevet tilføjet til dit inventory.");
+                System.out.println("Item blev tilføjet til dit inventory.");
                 break;
             }
+        }
         }
     }
 

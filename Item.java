@@ -43,7 +43,7 @@ abstract class Item {
 
     @Override
     public String toString() {
-        return "Itmems [id=" + id + ", name=" + name + ", weight=" + weight + ", value=" + value + "]";
+        return "Items [id=" + id + ", name=" + name + ", weight=" + weight + ", value=" + value + "]";
     }
 
     public void displayItem() {
